@@ -1,0 +1,163 @@
+$pink-color: rgb(219, 25, 83);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #4e4e50;
+}
+.qod-container {
+  height: 100vh;
+  color: #e6e6fa;
+  margin: 0 auto;
+  width: 70%;
+  background-color: #1a1a1d;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  p {
+    margin: 30px 0 10px 0;
+  }
+}
+.show {
+  min-width: 80px;
+  flex-grow: 0;
+  border: 2px solid $pink-color;
+  background-color: #dc143c;
+  border-radius: 2px;
+  color: #e6e6fa;
+  font-size: 24px;
+  padding: 3px 10px 3px 10px;
+  font-family: "Indie Flower", cursive;
+  &:active {
+    background-color: $pink-color;
+  }
+}
+.hide {
+  min-width: 80px;
+  flex-grow: 0;
+  border: 2px solid #960096;
+  background-color: #690069;
+  border-radius: 2px;
+  color: #e6e6fa;
+  font-size: 24px;
+  padding: 3px 10px 3px 10px;
+  font-family: "Indie Flower", cursive;
+  &:active {
+    background-color: #960096;
+  }
+}
+.quote {
+  font-size: 30px;
+  line-height: 35px;
+  font-family: "Outfit", sans-serif;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 0 15px;
+  margin: 20px 0 2px 0;
+}
+.like-button {
+  min-width: 30px;
+  min-height: 30px;
+  color: $pink-color;
+  font-size: 30px;
+
+  &:active {
+    transition: 0.1s ease-out;
+    font-size: 35px;
+  }
+}
+
+.author {
+  font-size: 20px;
+  font-family: "Outfit", sans-serif;
+  padding-left: 50px;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 1s;
+  max-height: 20px;
+}
+
+.quote-element {
+  margin-top: 20px;
+  transform: translateY(-40px);
+  opacity: 0;
+  transition: all 1s;
+  max-height: 100px;
+  margin-bottom: 10px;
+  p {
+    width: 80%;
+    padding-left: 50px;
+  }
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nonactive {
+  transition: max-height 1s ease-in !important;
+  max-height: 0;
+}
+
+blockquote p::before,
+blockquote p::after {
+  color: $pink-color;
+  content: "“";
+  font-family: Georgia;
+  font-size: 8rem;
+  margin: 1.5rem 0 0 -3rem;
+  position: absolute;
+}
+
+blockquote p::after {
+  content: "”";
+  margin: 2.9rem -4rem 0 0;
+}
+.liked {
+  align-self: flex-end;
+  height: 30px;
+  margin: 5px 15px 5px 0;
+}
+.title {
+  font-family: "Dancing Script", cursive;
+  font-size: 60px;
+  padding-left: 10px;
+}
+.favQuotes {
+  display: flex;
+  justify-content: space-between;
+}
+a {
+  font-size: 20px;
+  font-family: "Outfit", sans-serif;
+  color: #e6e6fa;
+  text-decoration: none;
+}
+.favorite-quotes::after {
+  content: ">";
+  position: absolute;
+  margin-top: 0.1rem;
+  margin-left: 0.2rem;
+}
+.back {
+  padding-left: 10px;
+}
+.back::before {
+  content: "<";
+  position: absolute;
+
+  margin-left: -0.8rem;
+}
