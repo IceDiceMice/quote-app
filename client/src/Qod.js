@@ -24,14 +24,14 @@ function Qod() {
   };
 
   const getData = async () => {
-    const response = await fetch("http://quotes.rest/qod?category=inspire");
+    const response = await fetch("https://quotes.rest/qod?category=inspire");
     const quotes = await response.json();
     setQod(quotes.contents.quotes[0].quote);
     setAuthor(quotes.contents.quotes[0].author);
   };
   const getFavQuotes = () => {
     axios
-      .get("http://localhost:8000/api/quotes/")
+      .get("https://the-quote-app.herokuapp.com/api/quotes/")
       .then((res) => setFavQuotes(res.data));
   };
 
@@ -65,7 +65,7 @@ function Qod() {
 
   const addQuote = () => {
     axios
-      .post("http://localhost:8000/api/quotes/add", {
+      .post("https://the-quote-app.herokuapp.com/api/quotes/add", {
         quote: qod,
         author: author,
       })
@@ -77,7 +77,9 @@ function Qod() {
     favQuotes.forEach((item) => {
       if (item.quote === qod) {
         axios
-          .delete(`http://localhost:8000/api/quotes/delete/${item._id}`)
+          .delete(
+            `https://the-quote-app.herokuapp.com/api/quotes/delete/${item._id}`
+          )
           .then((res) => console.log(res.data))
           .then(getFavQuotes);
       }

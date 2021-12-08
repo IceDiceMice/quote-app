@@ -7,9 +7,15 @@ const cors = require("cors");
 const quotesRouter = require("./routes/quote-routes");
 
 app.get("/", (req, res) => res.send("Hello world!"));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+var corsOptions = {
+  origin: ["localhost://3000", "https://the-quote-app.herokuapp.com"],
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(

@@ -20,7 +20,7 @@ export default function Liked() {
   };
   const getFavQuotes = () => {
     axios
-      .get("http://localhost:8000/api/quotes/")
+      .get("https://the-quote-app.herokuapp.com/api/quotes/")
       .then((res) => setFavQuotes(res.data));
   };
 
@@ -34,7 +34,7 @@ export default function Liked() {
 
   const deleteQuote = (id) => {
     axios
-      .delete(`http://localhost:8000/api/quotes/delete/${id}`)
+      .delete(`https://the-quote-app.herokuapp.com/api/quotes/delete/${id}`)
       .then((res) => console.log(res.data))
       .then(getFavQuotes);
   };
