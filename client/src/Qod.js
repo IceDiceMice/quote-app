@@ -18,9 +18,9 @@ function Qod() {
   const setFilledLike = () => {
     if (favQuotes.some((item) => item.quote === qod)) {
       setLike(true);
-    } else {
-      setLike(false);
+      return;
     }
+    setLike(false);
   };
 
   const getData = async () => {
