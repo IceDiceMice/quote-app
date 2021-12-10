@@ -4,6 +4,13 @@ require("dotenv").config();
 const app = express();
 const cors = require("cors");
 
+var corsOptions = {
+  origin: ["http://localhost:3000", "https://the-quote-app.netlify.app"],
+  optionsSuccessStatus: 200,
+  methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+};
+app.use(cors(corsOptions));
+
 const quotesRouter = require("./routes/quote-routes");
 
 app.get("/", (req, res) => res.send("Hello world!"));
@@ -11,12 +18,6 @@ app.get("/", (req, res) => res.send("Hello world!"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var corsOptions = {
-  origin: ["http://localhost:3000", "https://the-quote-app.netlify.app"],
-  optionsSuccessStatus: 200,
-  methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-};
-app.use(cors(corsOptions));
 // app.use((req, res, next) => {
 //   // res.header("Access-Control-Allow-Origin", "*");
 //   // res.header(

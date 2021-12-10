@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const ObjectID = require("mongodb").ObjectId;
 const Quotes = require("../models/quotes-schema");
+const cors = require("cors");
 
-router.get("/", async (req, res) => {
+router.get("/", cors(), async (req, res) => {
   try {
     const quote = await Quotes.find();
     res.json(quote);
@@ -12,7 +13,7 @@ router.get("/", async (req, res) => {
     res.status(400).send("Error");
   }
 });
-router.post("/add", async (req, res) => {
+router.post("/add", cors(), async (req, res) => {
   try {
     let quote = new Quotes(req.body);
     await quote.save();
@@ -22,7 +23,7 @@ router.post("/add", async (req, res) => {
     console.log(err);
   }
 });
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", cors(), async (req, res) => {
   let { id } = req.params;
   try {
     await Quotes.collection.deleteOne({ _id: ObjectID(`${id}`) });
