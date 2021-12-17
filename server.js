@@ -5,7 +5,10 @@ const app = express();
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "https://test-todo-api-884.herokuapp.com",
+  origin: [
+    "https://the-quote-app.netlify.app",
+    "https://the-quote-app.herokuapp.com",
+  ],
   methods: "GET, POST, PUT, PATCH, POST, DELETE,OPTIONS, HEAD",
   allowedHeaders: "Content-Type, Authorization,Accept,X-Requested-With",
   credentials: true,
