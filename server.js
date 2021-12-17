@@ -4,11 +4,12 @@ require("dotenv").config();
 const app = express();
 const cors = require("cors");
 
-var corsOptions = {
+const corsOptions = {
   origin: "https://test-todo-api-884.herokuapp.com",
   methods: "GET, POST, PUT, PATCH, POST, DELETE,OPTIONS, HEAD",
   allowedHeaders: "Content-Type, Authorization,Accept,X-Requested-With",
   credentials: true,
+  preflightContinue: true,
 };
 app.use(cors(corsOptions));
 
@@ -36,6 +37,12 @@ app.use(express.json());
 //   );
 //   next();
 // });
+app.use(function (req, res, next) {
+  if (req.method === "OPTIONS") {
+    res.status(204);
+  }
+  next();
+});
 
 app.use("/api/quotes", quotesRouter);
 
