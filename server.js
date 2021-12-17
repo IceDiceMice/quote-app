@@ -5,10 +5,11 @@ const app = express();
 const cors = require("cors");
 
 const corsOptions = {
-  origin: [
-    "https://the-quote-app.netlify.app",
-    "https://the-quote-app.herokuapp.com",
-  ],
+  // origin: [
+  //   "https://the-quote-app.netlify.app",
+  //   "https://the-quote-app.herokuapp.com",
+  // ],
+  origin: "*",
   methods: "GET, POST, PUT, PATCH, POST, DELETE,OPTIONS, HEAD",
   allowedHeaders: "Content-Type, Authorization,Accept,X-Requested-With",
   credentials: true,
@@ -23,23 +24,23 @@ app.get("/", (req, res) => res.send("Hello world!"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://the-quote-app.herokuapp.com"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://the-quote-app.herokuapp.com"
+//   );
+//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 app.use(function (req, res, next) {
   if (req.method === "OPTIONS") {
     res.status(204);
