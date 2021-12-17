@@ -5,12 +5,10 @@ const app = express();
 const cors = require("cors");
 
 var corsOptions = {
-  origin: ["http://localhost:3000", "https://the-quote-app.netlify.app"],
-  optionsSuccessStatus: 200,
+  origin: "https://test-todo-api-884.herokuapp.com",
+  methods: "GET, POST, PUT, PATCH, POST, DELETE,OPTIONS, HEAD",
+  allowedHeaders: "Content-Type, Authorization,Accept,X-Requested-With",
   credentials: true,
-  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Content-Type"],
-  exposedHeaders: ["Content-Type"],
 };
 app.use(cors(corsOptions));
 
