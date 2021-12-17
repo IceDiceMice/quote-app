@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 
 var corsOptions = {
-  origin: "*",
+  origin: ["http://localhost:3000", "https://the-quote-app.netlify.app"],
   optionsSuccessStatus: 200,
   credentials: true,
   methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
