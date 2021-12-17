@@ -29,7 +29,7 @@ router.get("/", cors(), async (req, res) => {
   //   },
   // ]);
 });
-router.post("/add", cors(), async (req, res) => {
+router.post("/add", cors({ origin: "*" }), async (req, res) => {
   try {
     let quote = new Quotes(req.body);
     await quote.save();
