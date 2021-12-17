@@ -7,7 +7,10 @@ const cors = require("cors");
 var corsOptions = {
   origin: "*",
   optionsSuccessStatus: 200,
-  methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  credentials: true,
+  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+  exposedHeaders: ["Content-Type"],
 };
 app.use(cors(corsOptions));
 
