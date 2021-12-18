@@ -14,10 +14,10 @@ export default function LikedItems({
           className={showQuote ? "quote-element active" : "quote-element"}
         >
           <p className="quote">{item.quote}</p>
+          <p className={showAuthor ? "author active" : "author"}>
+            -{item.author}
+          </p>
         </blockquote>
-        <p className={showAuthor ? "author active" : "author"}>
-          -{item.author}
-        </p>
       </div>
       <IoCloseSharp
         className="like-button"

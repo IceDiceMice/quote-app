@@ -117,11 +117,10 @@ function Qod() {
 
       <blockquote ref={quoteEl} className="quote-element">
         <p className="quote">{qod}</p>
+        <p ref={authorEl} className="author">
+          -{author}
+        </p>
       </blockquote>
-
-      <p ref={authorEl} className="author">
-        -{author}
-      </p>
     </div>
   );
 }

@@ -28,6 +28,16 @@ body,
     margin: 30px 0 10px 0;
   }
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .qod-container {
+    width: 100%;
+    overflow: scroll;
+  }
+  .active {
+    margin-bottom: 50% !important;
+  }
+}
+
 .show {
   min-width: 80px;
   flex-grow: 0;
@@ -128,6 +138,10 @@ blockquote p::after {
   content: "”";
   margin: 2.9rem -4rem 0 0;
 }
+blockquote .author::after,
+blockquote .author::before {
+  content: none;
+}
 .liked {
   align-self: flex-end;
   height: 30px;
@@ -148,6 +162,9 @@ a {
   color: #e6e6fa;
   text-decoration: none;
 }
+.favorite-quotes {
+  position: relative;
+}
 .favorite-quotes::after {
   content: ">";
   position: absolute;
@@ -156,6 +173,7 @@ a {
 }
 .back {
   padding-left: 10px;
+  position: relative;
 }
 .back::before {
   content: "<";
